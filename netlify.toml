@@ -1,0 +1,12 @@
+[build]
+  # The imported repository stores the app in a ZIP, rather than loose source files.
+  command = """
+    unzip -o Forever_Collection_Website.zip -d .netlify/source &&
+    mkdir -p dist &&
+    cp .netlify/source/forever-collection/*.html .netlify/source/forever-collection/*.css .netlify/source/forever-collection/*.js dist/
+  """
+  publish = "dist"
+  functions = ".netlify/source/forever-collection/netlify/functions"
+
+[functions]
+  node_bundler = "esbuild"
